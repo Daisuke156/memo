@@ -34,18 +34,11 @@
     <title>memo</title>
   </header>
   <body>
-    <h1>新規作成</h1>
-    <form action="memo.php" method="post">
-      <h2>Title</h2>
-      <input type="text" name="title" size="20"></input>
-      <h2>Contents</h2>
-      <textarea name="contents" style="width:300px; height:100px;"></textarea><br>
-      <input type="submit" name="create" value="追加"></input>
-    </form>
+    <a href="create.php">新規作成</a>
     <h1>メモ一覧</h1>
     <?php 
       //テーブルからデータを取得
-      $stmt = $pdo->query("SELECT * FROM memo");
+      $stmt = $pdo->query("SELECT * FROM memo ORDER BY id DESC");
       foreach ($stmt as $row):
     ?>
     <form action="memo.php" method="post">
